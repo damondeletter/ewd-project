@@ -1,0 +1,18 @@
+.error {
+	color: red;
+}
+
+body {
+	background-color: lightgray;
+	font-family: monospace, "Gill Sans";
+}
+
+input[type=submit] {
+  background-color: orange;
+  border: 1px dashed black;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
