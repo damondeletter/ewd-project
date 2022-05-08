@@ -44,14 +44,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		 http.formLogin().
          defaultSuccessUrl("/", true).
          loginPage("/login");
+		 
+		 http.authorizeRequests()
+		 .antMatchers("/fifa").hasRole("USER")
+		 .antMatchers("/fifa/*").hasRole("ADMIN").and().csrf();
+		 
+		 
 
-		 http
+		/* http
      	.csrf().disable()
      	.authorizeRequests().antMatchers("/login").permitAll()
      	.antMatchers("fifa/**").hasAnyRole("ADMIN", "USER")
      	.antMatchers(HttpMethod.GET,"/fifa/${id}").hasRole("ADMIN")
      	.antMatchers(HttpMethod.POST,"/fifa/${id}").hasRole("ADMIN")
-     	.anyRequest().authenticated();
+     	.anyRequest().authenticated();*/
 		 /*http.authorizeRequests()
          .antMatchers("/").hasRole("USER").
          

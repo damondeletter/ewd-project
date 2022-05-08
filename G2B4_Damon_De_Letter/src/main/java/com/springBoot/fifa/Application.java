@@ -2,6 +2,7 @@ package com.springBoot.fifa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -11,7 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import domain.MatchBean;
 import validator.AanschafTicketValidator;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+//MOET WEGGEHAALD WORDEN --> DE EXCLUDE 
 public class Application implements WebMvcConfigurer{
 
 	public static void main(String[] args) {
