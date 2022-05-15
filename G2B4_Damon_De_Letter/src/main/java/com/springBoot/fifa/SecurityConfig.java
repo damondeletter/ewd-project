@@ -30,32 +30,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
-        /*http.httpBasic();
-        http
-                .authorizeRequests()
-                .antMatchers("/*").hasRole("USER");*/
-                                //.hasAnyRole("ADMIN","USER");
-        /*http
-        	.csrf().disable()
-        	.authorizeRequests().antMatchers("/login").permitAll()
-        	.antMatchers("fifa/**").hasAnyRole("ADMIN", "USER")
-        	.antMatchers(HttpMethod.POST,"/fifa").hasAnyRole("ADMIN")
-        	.anyRequest().authenticated();*/
 		 http.formLogin().
          defaultSuccessUrl("/", true).
          loginPage("/login");
-
-		 http
-     	.csrf().disable()
-     	.authorizeRequests().antMatchers("/login").permitAll()
-     	.antMatchers("fifa/**").hasAnyRole("ADMIN", "USER")
-     	.antMatchers(HttpMethod.GET,"/fifa/${id}").hasRole("ADMIN")
-     	.antMatchers(HttpMethod.POST,"/fifa/${id}").hasRole("ADMIN")
-     	.anyRequest().authenticated();
-		 /*http.authorizeRequests()
-         .antMatchers("/").hasRole("USER").
-         
-         and()
-         .csrf();*/
+		 
+		 http.authorizeRequests()
+		 .antMatchers("/fifa").hasRole("USER")
+		 .antMatchers("/fifa/*").hasRole("ADMIN").and().csrf();
     }
 }

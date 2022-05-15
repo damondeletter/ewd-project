@@ -2,14 +2,14 @@ package domain;
 
 import java.util.List;
 
-import service.VoetbalServiceImpl;
+import service.StadiumDao;
 
 public class StadiumBean {
 
 	private final List<String> stadiumList;
 	
-	public StadiumBean() {
-		stadiumList = new VoetbalServiceImpl().getStadiumList();
+	public StadiumBean(StadiumDao stadiumdao) {
+		stadiumList = stadiumdao.getStadiumList();
 	}
 	public List<String> getStadiumList() {
 		return stadiumList;

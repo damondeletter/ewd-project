@@ -2,17 +2,31 @@
 	color: red;
 }
 
+input[type=submit] {
+	pointer-events: auto;
+	cursor: pointer;
+	background: #e7e7e7;
+	border: none;
+	padding: 1.5rem 3rem;
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	position: relative;
+	display: inline-block;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
 body {
 	background-color: lightgray;
 	font-family: monospace, "Gill Sans";
-}
-
-input[type=submit] {
-  background-color: orange;
-  border: 1px dashed black;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
+    display: table-cell;
+    vertical-align: middle;
 }

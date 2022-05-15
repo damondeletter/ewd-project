@@ -2,14 +2,12 @@ package domain;
 
 import java.util.List;
 
-import service.VoetbalServiceImpl;
+import service.StadiumDao;
 
-public class MatchBean implements ExpertBean{
+public class MatchBean{
 
-	@Override
-	public List<WedstrijdTicket> getExpert(String value, VoetbalServiceImpl voetbal) {
-		
-		return voetbal.getWedstrijdenByStadium(value);
+	public List<WedstrijdTicket> getWedrijdenByStadium(String value, StadiumDao stadiumdao) {
+		return stadiumdao.getWedstrijdTicketsByStadiumName(value);
 	}
 	
 
