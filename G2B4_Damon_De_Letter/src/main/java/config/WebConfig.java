@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import domain.ExpertBean;
 import domain.MatchBean;
 
 @Configuration
@@ -17,7 +16,7 @@ import domain.MatchBean;
 public class WebConfig implements WebMvcConfigurer {
 
 	@Bean
-	public ExpertBean expertBean() {
+	public MatchBean expertBean() {
 		return new MatchBean();
 	}
 	

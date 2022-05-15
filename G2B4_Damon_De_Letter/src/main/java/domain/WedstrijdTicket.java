@@ -1,9 +1,24 @@
 package domain;
 
-//Aantal tickets beschikbaar per wedstrijd
-public class WedstrijdTicket {
+import java.io.Serializable;
 
-    private Wedstrijd wedstrijd; 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class WedstrijdTicket implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+	
+	@OneToOne
+	private Wedstrijd wedstrijd; 
 
     private int tickets; //aantal tickets beschikbaar
 
@@ -11,7 +26,7 @@ public class WedstrijdTicket {
         this.wedstrijd = wedstrijd;
         this.tickets = tickets;
     }
-
+    protected WedstrijdTicket() {}
     public int getTickets() {
         return tickets;
     }
